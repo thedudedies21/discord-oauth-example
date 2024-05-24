@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>MunchyVerse</title>
+        <meta name="apple-mobile-web-app-capable"
+        content="yes" />
+        <meta name="viewport"
+        content="user-scalable=no, width=device-width" />
+        <link rel="icon" type="image/png" href="/icons/index/ico32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/icons/index/ico16.png" sizes="16x16">
+        <link rel="apple-touch-icon" href="/icon.png">
+        <style>
+            body {
+              font-family: Arial, Helvetica, sans-serif;
+            }
+            
+            .navbar {
+              overflow: hidden;
+              background-color: #333;
+            }
+            
+            .navbar a {
+              float: left;
+              font-size: 16px;
+              color: white;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+            }
+            
+            .dropdown {
+              float: left;
+              overflow: hidden;
+            }
+            
+            .dropdown .dropbtn {
+              font-size: 16px;  
+              border: none;
+              outline: none;
+              color: white;
+              padding: 14px 16px;
+              background-color: inherit;
+              font-family: inherit;
+              margin: 0;
+            }
+            
+            .navbar a:hover, .dropdown:hover .dropbtn {
+              background-color: red;
+            }
+            
+            .dropdown-content {
+              display: none;
+              position: absolute;
+              background-color: #f9f9f9;
+              min-width: 160px;
+              box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+              z-index: 1;
+            }
+            
+            .dropdown-content a {
+              float: none;
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+              text-align: left;
+            }
+            
+            .dropdown-content a:hover {
+              background-color: #ddd;
+            }
+            
+            .dropdown:hover .dropdown-content {
+              display: block;
+            }
+            </style>
+    </head>
+    <body ontouchmove="BlockMove(event)" ontouchstart="tData(event)">
+        <div class="navbar">
+            <a href="/">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Profile
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/login" id="logbtn">Login</a>
+                </div>
+            </div>
+        </div>
+        <h1 id="wlcm">Welcome Guest</h1>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io()
+            var wlcm = document.getElementById("wlcm")
+            var logbtn = document.getElementById("logbtn")
+
+            logbtn.ontouchend = (event) => {
+                window.location.href = "/login"
+            }
+
+            socket.on("loggedIn", (discord) => {
+                wlcm.innerHTML = "Welcome " + discord.global_name
+                logbtn.innerHTML = "logout"
+                logbtn.href = "/logout"
+                })
+
+            function BlockMove(event){
+                window.event.preventDefault()
+            }
+        </script>
+    </body>
+</html>

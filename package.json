@@ -1,0 +1,30 @@
+{
+  "name": "ouath-project",
+  "version": "1.0.0",
+  "description": "A simple apple weblit app with discord oauth2",
+  "main": "oauth.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thedudedies21/discord-oauth-example.git"
+  },
+  "keywords": [
+    "discord"
+  ],
+  "author": "munchy420",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thedudedies21/discord-oauth-example/issues"
+  },
+  "homepage": "https://github.com/thedudedies21/discord-oauth-example#readme",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "socket.io": "^4.7.5"
+  }
+}
