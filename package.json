@@ -4,7 +4,7 @@
   "description": "A simple apple weblit app with discord oauth2",
   "main": "oauth.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node oauth.js"
   },
   "repository": {
     "type": "git",
